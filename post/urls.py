@@ -8,6 +8,7 @@ router.register('post', views.PostViewSet)
 # router.urls
 
 urlpatterns = [
-    path('public/', views.PublicPostListAPIView.as_view()),
+    # path('mypost/<int:pk>', views.PublicPostListAPIView.as_view()),
+    path('public/', views.public_post_list),
     path('', include(router.urls)),
 ]
