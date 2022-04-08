@@ -11,17 +11,18 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from os.path import abspath, dirname
+import string, random
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
+
+chars = ''.join([string.ascii_letters, string.digits, string.punctuation]).replace('\'', '').replace('"', '').replace('\\', '')
+
+SECRET_KEY = ''.join([random.SystemRandom().choice(chars) for i in range(50)])
+print(SECRET_KEY)
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&#=u!1+16!(js(_ut5&chf8h4fvx5xitvki^1@ia4_9=072i-s'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
